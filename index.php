@@ -24,9 +24,9 @@
 
          <div class="flex flex-wrap gap-4">
             <a href="<?= BASE_URL ?>contacto" class="btn-serious bg-brand-purple text-white hover:opacity-90">
-               Hablar con un Ingeniero
+               Contactanos
             </a>
-            <a href="#soluciones"
+            <a href="<?= BASE_URL ?>metodologia"
                class="btn-serious bg-brand-green-light text-brand-green border border-brand-green/20">
                Nuestra Metodología
             </a>
@@ -233,6 +233,14 @@
                   Ingeniería aplicada a procesos críticos. Diseñamos soluciones que se adaptan a la lógica de negocio
                   de cada industria con precisión quirúrgica.
                </p>
+                <div class="pt-4">
+                   <a href="<?= BASE_URL ?>especialidades" class="inline-flex items-center gap-2 font-black text-xs uppercase tracking-widest text-brand-purple hover:text-slate-dark transition-colors group">
+                      Ver todas las industrias
+                      <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                      </svg>
+                   </a>
+                </div>
             </div>
 
             <!-- Right Column: Compact Sequential Reveal -->

@@ -341,36 +341,84 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 
    <nav id="main-nav" class="h-20 flex items-center bg-white/80 backdrop-blur-lg border-b border-slate-100 sticky top-0 z-[120] transition-all duration-300">
       <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-         <!-- Logo -->
-         <div class="flex items-center">
-            <a href="<?= BASE_URL ?>" class="flex items-center group">
-               <img src="<?= IMG_PATH ?>Recurso2.svg" alt="Voltora Logo"
-                  class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
-            </a>
-         </div>
+          <!-- Logo -->
+          <div class="flex items-center">
+             <a href="<?= BASE_URL ?>" class="flex items-center group">
+                <img src="<?= IMG_PATH ?>Recurso2.svg" alt="Voltora Logo"
+                   class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
+             </a>
+          </div>
 
          <!-- Desktop Navigation -->
          <div class="hidden lg:flex gap-10">
             <?php
             $current_page = basename($_SERVER['PHP_SELF']);
-            ?>
+            ?>             
             <a href="<?= BASE_URL ?>"
-               class="text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'index.php' || $current_page == '') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">Home</a>
-            <a href="<?= BASE_URL ?>nosotros"
-               class="text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'nosotros.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">Nosotros</a>
-            <a href="<?= BASE_URL ?>especialidades"
-               class="text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'especialidades.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">Especialidades</a>
-            <a href="<?= BASE_URL ?>contacto"
-               class="text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'contacto.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">Contacto</a>
+                class="relative py-2 group text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'index.php' || $current_page == '') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">
+                Home
+                <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand-purple transition-transform duration-300 ease-out origin-left <?= ($current_page == 'index.php' || $current_page == '') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' ?>"></span>
+             </a>
+             <a href="<?= BASE_URL ?>especialidades"
+                class="relative py-2 group text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'especialidades.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">
+                Especialidades
+                <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand-purple transition-transform duration-300 ease-out origin-left <?= ($current_page == 'especialidades.php') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' ?>"></span>
+             </a>
+             <a href="<?= BASE_URL ?>nosotros"
+                class="relative py-2 group text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'nosotros.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">
+                Nosotros
+                <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand-purple transition-transform duration-300 ease-out origin-left <?= ($current_page == 'nosotros.php') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' ?>"></span>
+             </a>
+             <?php if (SHOW_PROJECTS_NAV): ?>
+             <a href="<?= BASE_URL ?>proyectos"
+                class="relative py-2 group text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'proyectos.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">
+                Proyectos
+                <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand-purple transition-transform duration-300 ease-out origin-left <?= ($current_page == 'proyectos.php') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' ?>"></span>
+             </a>
+             <?php endif; ?>
+             <a href="<?= BASE_URL ?>contacto"
+                class="relative py-2 group text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'contacto.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">
+                Contacto
+                <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand-purple transition-transform duration-300 ease-out origin-left <?= ($current_page == 'contacto.php') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' ?>"></span>
+             </a>
          </div>
 
          <!-- Desktop CTA + Mobile Toggle -->
          <div class="flex items-center gap-6">
-            <a href="<?= BASE_URL ?>contacto"
-               class="hidden md:inline-flex group relative items-center gap-2 bg-slate-dark text-white px-7 py-3 rounded-full font-black text-[9px] uppercase tracking-widest transition-all duration-500 hover:bg-brand-purple hover:shadow-[0_10px_30px_rgba(160,141,246,0.2)] overflow-hidden">
-               <span class="relative z-10">Agendar reunión</span>
-               <div class="absolute inset-0 bg-gradient-to-r from-brand-purple to-brand-green opacity-0 group-hover:opacity-10 transition-opacity"></div>
-            </a>
+             <!-- Small Social Icons in Header (Left of WhatsApp Button) -->
+             <div class="hidden xl:flex items-center gap-3.5 mr-2">
+                <!-- Facebook -->
+                <a href="<?= URL_FACEBOOK ?>" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-purple transition-all duration-300" aria-label="Facebook">
+                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                </a>
+                <!-- Instagram -->
+                <a href="<?= URL_INSTAGRAM ?>" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-purple transition-all duration-300" aria-label="Instagram">
+                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                </a>
+                <!-- LinkedIn -->
+                <a href="<?= URL_LINKEDIN ?>" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-purple transition-all duration-300" aria-label="LinkedIn">
+                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                </a>
+                <!-- TikTok -->
+                <a href="<?= URL_TIKTOK ?>" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-purple transition-all duration-300" aria-label="TikTok">
+                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.76-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.35-3.46-5.71-.02-1.92.93-3.81 2.52-4.9 1.51-1.03 3.39-1.34 5.22-.98v4.06c-1.03-.45-2.27-.37-3.15.26-.6.41-1.01 1.07-1.13 1.78-.15.93.18 1.91.87 2.53.68.61 1.66.86 2.57.65 1.03-.23 1.85-.99 2.18-1.97.16-.49.21-1.01.21-1.53V.02h4.15z" /></svg>
+                </a>
+                <!-- YouTube -->
+                <a href="<?= URL_YOUTUBE ?>" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand-purple transition-all duration-300" aria-label="YouTube">
+                   <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" /></svg>
+                </a>
+             </div>
+             <a href="https://wa.me/51903361649" target="_blank" rel="noopener noreferrer"
+                class="hidden md:inline-flex group relative items-center gap-2 bg-[#25D366] text-white px-7 py-3 rounded-full font-black text-[9px] uppercase tracking-widest transition-all duration-500 hover:bg-[#20ba5a] hover:shadow-[0_10px_30px_rgba(37,211,102,0.3)] overflow-hidden">
+                <svg class="w-3.5 h-3.5 relative z-10 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.886.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.568-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span class="relative z-10">WhatsApp</span>
+                <!-- Hover Glow Light effect -->
+                <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <!-- Sweeping Shine animation overlay -->
+                <div class="absolute inset-0 -translate-x-[150%] -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[150%]"></div>
+             </a>
 
             <!-- Mobile Menu Toggle -->
             <button id="mobile-menu-toggle" class="hamburger lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 relative z-[110]" aria-label="Menu">
@@ -390,17 +438,26 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 
       <div class="mt-24 flex flex-col gap-6 relative z-10">
          <a href="<?= BASE_URL ?>" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'index.php' || $current_page == '') ? 'text-brand-purple' : 'text-slate-400 hover:text-brand-purple' ?>">Home</a>
-         <a href="<?= BASE_URL ?>nosotros" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'nosotros.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-white' ?>">Nosotros</a>
          <a href="<?= BASE_URL ?>especialidades" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'especialidades.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-white' ?>">Especialidades</a>
+         <a href="<?= BASE_URL ?>nosotros" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'nosotros.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-white' ?>">Nosotros</a>
+         <?php if (SHOW_PROJECTS_NAV): ?>
+         <a href="<?= BASE_URL ?>proyectos" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'proyectos.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-white' ?>">Proyectos</a>
+         <?php endif; ?>
          <a href="<?= BASE_URL ?>contacto" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'contacto.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-white' ?>">Contacto</a>
       </div>
 
       <div class="mt-auto border-t border-white/10 pt-8 opacity-0 translate-y-10 mobile-link relative z-10 flex flex-col gap-6">
          <div>
             <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-4">Próxima Inversión</p>
-            <a href="<?= BASE_URL ?>contacto" class="flex items-center justify-center w-full bg-brand-purple text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-white hover:text-brand-purple transition-all duration-300 shadow-[0_10px_30px_rgba(160,141,246,0.2)]">
-               Agendar Reunión
-            </a>
+             <a href="https://wa.me/51903361649" target="_blank" rel="noopener noreferrer" 
+                class="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-[#20ba5a] transition-all duration-300 shadow-[0_10px_30px_rgba(37,211,102,0.2)] group relative overflow-hidden">
+                <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.886.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.568-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span class="relative z-10">WhatsApp</span>
+                <!-- Sweeping Shine animation overlay -->
+                <div class="absolute inset-0 -translate-x-[150%] -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[150%]"></div>
+             </a>
          </div>
 
          <!-- Social Icons -->

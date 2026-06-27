@@ -30,3 +30,16 @@ define('BASE_URL', $protocol . $host . $base_dir);
 // Rutas específicas para mayor comodidad
 define('IMG_PATH', BASE_URL . 'img/');
 define('INC_PATH', __DIR__ . '/'); // Ruta física para includes internos
+
+// Redes Sociales - Nombre de usuario unificado
+define('SOCIAL_USERNAME', 'voltoraperu');
+
+// URLs de redes sociales construidas dinámicamente
+define('URL_FACEBOOK', 'https://facebook.com/' . SOCIAL_USERNAME);
+define('URL_INSTAGRAM', 'https://instagram.com/' . SOCIAL_USERNAME);
+define('URL_LINKEDIN', 'https://linkedin.com/company/' . SOCIAL_USERNAME);
+define('URL_TIKTOK', 'https://tiktok.com/@' . SOCIAL_USERNAME);
+define('URL_YOUTUBE', 'https://youtube.com/@' . SOCIAL_USERNAME);
+
+// Control de visibilidad para la sección de Proyectos en el Navbar (Poner true para activar)
+define('SHOW_PROJECTS_NAV', false);
