@@ -343,7 +343,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
       <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
          <!-- Logo -->
          <div class="flex items-center">
-            <a href="<?= BASE_URL ?>index.php" class="flex items-center group">
+            <a href="<?= BASE_URL ?>" class="flex items-center group">
                <img src="<?= IMG_PATH ?>Recurso2.svg" alt="Voltora Logo"
                   class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
             </a>
@@ -354,19 +354,19 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
             <?php
             $current_page = basename($_SERVER['PHP_SELF']);
             ?>
-            <a href="<?= BASE_URL ?>index.php"
+            <a href="<?= BASE_URL ?>"
                class="text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'index.php' || $current_page == '') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">Home</a>
-            <a href="<?= BASE_URL ?>nosotros.php"
+            <a href="<?= BASE_URL ?>nosotros"
                class="text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'nosotros.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">Nosotros</a>
-            <a href="<?= BASE_URL ?>index.php#sectores"
-               class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-dark transition-all duration-300">Especialidades</a>
-            <a href="#contacto"
-               class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-slate-dark transition-all duration-300">Contacto</a>
+            <a href="<?= BASE_URL ?>especialidades"
+               class="text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'especialidades.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">Especialidades</a>
+            <a href="<?= BASE_URL ?>contacto"
+               class="text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 <?= ($current_page == 'contacto.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-slate-dark' ?>">Contacto</a>
          </div>
 
          <!-- Desktop CTA + Mobile Toggle -->
          <div class="flex items-center gap-6">
-            <a href="#contacto"
+            <a href="<?= BASE_URL ?>contacto"
                class="hidden md:inline-flex group relative items-center gap-2 bg-slate-dark text-white px-7 py-3 rounded-full font-black text-[9px] uppercase tracking-widest transition-all duration-500 hover:bg-brand-purple hover:shadow-[0_10px_30px_rgba(160,141,246,0.2)] overflow-hidden">
                <span class="relative z-10">Agendar reunión</span>
                <div class="absolute inset-0 bg-gradient-to-r from-brand-purple to-brand-green opacity-0 group-hover:opacity-10 transition-opacity"></div>
@@ -389,16 +389,16 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
       <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-green/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
 
       <div class="mt-24 flex flex-col gap-6 relative z-10">
-         <a href="<?= BASE_URL ?>index.php" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'index.php' || $current_page == '') ? 'text-brand-purple' : 'text-slate-400 hover:text-brand-purple' ?>">Home</a>
-         <a href="<?= BASE_URL ?>nosotros.php" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'nosotros.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-white' ?>">Nosotros</a>
-         <a href="<?= BASE_URL ?>index.php#sectores" class="mobile-link text-4xl md:text-5xl font-black text-slate-400 opacity-0 translate-y-10 hover:text-white transition-colors">Especialidades</a>
-         <a href="#contacto" class="mobile-link text-4xl md:text-5xl font-black text-slate-400 opacity-0 translate-y-10 hover:text-white transition-colors">Contacto</a>
+         <a href="<?= BASE_URL ?>" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'index.php' || $current_page == '') ? 'text-brand-purple' : 'text-slate-400 hover:text-brand-purple' ?>">Home</a>
+         <a href="<?= BASE_URL ?>nosotros" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'nosotros.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-white' ?>">Nosotros</a>
+         <a href="<?= BASE_URL ?>especialidades" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'especialidades.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-white' ?>">Especialidades</a>
+         <a href="<?= BASE_URL ?>contacto" class="mobile-link text-4xl md:text-5xl font-black opacity-0 translate-y-10 transition-colors <?= ($current_page == 'contacto.php') ? 'text-brand-purple' : 'text-slate-400 hover:text-white' ?>">Contacto</a>
       </div>
 
       <div class="mt-auto border-t border-white/10 pt-8 opacity-0 translate-y-10 mobile-link relative z-10 flex flex-col gap-6">
          <div>
             <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 mb-4">Próxima Inversión</p>
-            <a href="#contacto" class="flex items-center justify-center w-full bg-brand-purple text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-white hover:text-brand-purple transition-all duration-300 shadow-[0_10px_30px_rgba(160,141,246,0.2)]">
+            <a href="<?= BASE_URL ?>contacto" class="flex items-center justify-center w-full bg-brand-purple text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-white hover:text-brand-purple transition-all duration-300 shadow-[0_10px_30px_rgba(160,141,246,0.2)]">
                Agendar Reunión
             </a>
          </div>
